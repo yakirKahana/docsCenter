@@ -31,7 +31,7 @@ if(docs_saved.length > 0){
   for(let i = 0; i < docs_saved.length; i++){
     card += `<div class="col l2 m3 s6">
                   <div class="card padding-10">
-                    <a href="`+docs_saved[i].url+`">
+                    <a href="`+docs_saved[i].url+`" target="_blank">
                     <div>
                     <img class="favicons" src="http://f1.allesedv.com/16/`+docs_saved[i].url+`">
                     <span>`+docs_saved[i].name+`</span>
@@ -52,11 +52,20 @@ renderDashboard();
 
 
 save_btn.click(()=>{
-  //add item to array
-  docs_saved.push(new Doc($('#name').val(),$('#url').val()));
-  localStorage.setItem('docs',JSON.stringify(docs_saved));
-  $('#name').val(null);
-  $('#url').val(null);
+  if($('#name').val()){
 
+      if($('#url').val()){
+        //add item to array
+        docs_saved.push(new Doc($('#name').val(),$('#url').val()));
+        localStorage.setItem('docs',JSON.stringify(docs_saved));
+        $('#name').val(null).removeClass();
+        $('#url').val(null).removeClass();
+        $('.modal').modal(close());
+      }else{
+        $('#url').addClass('invalid');
+      }
+  }else{
+    $('#name').addClass('invalid');
+  }
   renderDashboard();
 });
