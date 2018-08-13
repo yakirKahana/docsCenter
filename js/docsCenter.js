@@ -20,11 +20,8 @@ class Doc{
 
 var docs_saved = [];
 
-//example
-docs_saved[0]={
-  name:'html',
-  url:'https://developer.mozilla.org/en-US/docs/Web/HTML',
-
+if(localStorage.getItem('docs') !== null){
+  docs_saved = JSON.parse(localStorage.getItem('docs'));
 }
 
 //displaying in dashboard
@@ -36,7 +33,7 @@ for(let i = 0; i < docs_saved.length; i++){
                 <div class="card padding-10">
                   <a href="`+docs_saved[i].url+`">
                   <div>
-                  <img style="" src="https://s2.googleusercontent.com/s2/favicons?domain=`+docs_saved[i].url+`">
+                  <img style="" src="http://f1.allesedv.com/16/`+docs_saved[i].url+`">
                   <span>`+docs_saved[i].name.toUpperCase()+`</span>
                   </div>
                   </a>
@@ -44,6 +41,8 @@ for(let i = 0; i < docs_saved.length; i++){
               </div> `;
 
 }
+
+
 dashboard.html(card);
 }
 
@@ -53,7 +52,7 @@ renderDashboard();
 save_btn.click(()=>{
   //add item to array
   docs_saved.push(new Doc($('#name').val(),$('#url').val()));
-
+  localStorage.setItem('docs',JSON.stringify(docs_saved));
   $('#name').val('');
   $('#url').val('');
 
