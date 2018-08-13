@@ -26,22 +26,24 @@ if(localStorage.getItem('docs') !== null){
 
 //displaying in dashboard
 function renderDashboard(){
-
-let card = '';
-for(let i = 0; i < docs_saved.length; i++){
-  card += `<div class="col l1 m3 s6">
-                <div class="card padding-10">
-                  <a href="`+docs_saved[i].url+`">
-                  <div>
-                  <img style="" src="http://f1.allesedv.com/16/`+docs_saved[i].url+`">
-                  <span>`+docs_saved[i].name.toUpperCase()+`</span>
+    let card = '';
+if(docs_saved.length > 0){
+  for(let i = 0; i < docs_saved.length; i++){
+    card += `<div class="col l2 m3 s6">
+                  <div class="card padding-10">
+                    <a href="`+docs_saved[i].url+`">
+                    <div>
+                    <img class="favicons" src="http://f1.allesedv.com/16/`+docs_saved[i].url+`">
+                    <span>`+docs_saved[i].name+`</span>
+                    </div>
+                    </a>
                   </div>
-                  </a>
-                </div>
-              </div> `;
+                </div> `;
 
+  }
+}else{
+  card = '<h1 class="light-blue-text center-align">No Links, add some =)</h1>';
 }
-
 
 dashboard.html(card);
 }
@@ -53,8 +55,8 @@ save_btn.click(()=>{
   //add item to array
   docs_saved.push(new Doc($('#name').val(),$('#url').val()));
   localStorage.setItem('docs',JSON.stringify(docs_saved));
-  $('#name').val('');
-  $('#url').val('');
+  $('#name').val(null);
+  $('#url').val(null);
 
   renderDashboard();
 });

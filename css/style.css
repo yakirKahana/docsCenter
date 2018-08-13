@@ -23,3 +23,11 @@
 
   padding: 10px;
 }
+
+
+
+.favicons{
+  display: inline-flex;
+  vertical-align: sub;
+  margin-right:2px;
+}
