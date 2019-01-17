@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,28 +9,32 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
   <link rel="stylesheet" href="./css/style.css">
-  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
   <title>Docs Center</title>
 </head>
+
 <body>
   <!-- Header -->
   <nav>
     <div class="nav-wrapper light-blue ">
-      <span class="brand-logo left ">Docs Center</span>
+      <span class="brand-logo  ">Docs Center</span>
+      <div class="right io"><a id="export" href="#" title="Export"><i class="material-icons">cloud_download</i></a></div>
     </div>
   </nav>
 
 
-    <div class="row margin-top-10px" id="dashboard">
+  <div class="row margin-top-10px" id="dashboard">
 
 
-    </div>
+  </div>
 
 
   <!-- add item -->
   <div class="fixed-action-btn">
-    <a class="btn-floating waves-effect waves-light btn-large light-blue right modal-trigger" href="#new-item-modal"><i class="material-icons">add</i></a>
+    <a class="btn-floating waves-effect waves-light btn-large light-blue right modal-trigger" href="#new-item-modal"><i
+        class="material-icons">add</i></a>
   </div>
   <div id="new-item-modal" class="modal padding-10">
 
@@ -46,10 +51,11 @@
       </div>
 
 
-      <a  class="btn right light-blue waves-effect waves-light"  id="save_btn">Save</a>
+      <a class="btn right light-blue waves-effect waves-light" id="save_btn">Save</a>
 
     </div>
   </div>
   <script src="./js/docsCenter.js"></script>
 </body>
+
 </html>
