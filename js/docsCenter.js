@@ -10,6 +10,13 @@ var save_btn = $('#save_btn');
 
 let exportBtn = $('#export');
 
+let fileBtn = $('#file-btn');
+let fileinput = $('#file-input');
+//click on file btn  == click on file Input
+fileBtn.click(() => {
+  fileinput.click();
+});
+
 //define doc class
 class Doc {
   constructor(doc_name, doc_url) {
@@ -21,12 +28,13 @@ class Doc {
 
 var docs_saved = [];
 
-if (localStorage.getItem('docs') !== null) {
-  docs_saved = JSON.parse(localStorage.getItem('docs'));
-}
+
 
 //displaying in dashboard
 function renderDashboard() {
+  if (localStorage.getItem('docs') !== null) {
+    docs_saved = JSON.parse(localStorage.getItem('docs'));
+  }
   let card = '';
   if (docs_saved.length > 0) {
     for (let i = 0; i < docs_saved.length; i++) {
@@ -42,6 +50,8 @@ function renderDashboard() {
                 </div> `;
 
     }
+
+    //export file
     exportBtn.attr('href', "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(docs_saved)));
     exportBtn.attr('download', 'docs.json');
   } else {
@@ -73,5 +83,20 @@ save_btn.click(() => {
   renderDashboard();
 });
 
+//import
 
+function handleFile(File) {
+  let reader = new FileReader();
+  reader.readAsText(File)
+  reader.addEventListener('load', () => {
+    console.log(reader.result);
+    localStorage.setItem('docs', reader.result);
+    renderDashboard();
+  });
+
+}
+
+fileinput.change(() => {
+  handleFile(fileinput[0].files[0]);
+});
 
