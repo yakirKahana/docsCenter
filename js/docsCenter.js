@@ -101,7 +101,7 @@ fileinput.change(() => {
 });
 
 
-//get domain name out of url
+//get domain name from url
 function getDomain(url){
   return url.replace('http://','').replace('https://','').replace('www.','').split(/[/?#]/)[0];
 
