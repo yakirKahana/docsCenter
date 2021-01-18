@@ -42,7 +42,7 @@ function renderDashboard() {
                   <div class="card padding-10">
                     <a href="`+ docs_saved[i].url + `" target="_blank">
                     <div>
-                    <img class="favicons" src="https://f1.allesedv.com/16/`+ docs_saved[i].url + `">
+                    <img class="favicons" src="https://icons.duckduckgo.com/ip3/${getDomain(docs_saved[i].url)}.ico">
                     <span>`+ docs_saved[i].name + `</span>
                     </div>
                     </a>
@@ -100,3 +100,9 @@ fileinput.change(() => {
   handleFile(fileinput[0].files[0]);
 });
 
+
+//get domain name out of url
+function getDomain(url){
+  return url.replace('http://','').replace('https://','').replace('www.','').split(/[/?#]/)[0];
+
+}
