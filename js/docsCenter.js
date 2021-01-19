@@ -40,12 +40,13 @@ function renderDashboard() {
     for (let i = 0; i < docs_saved.length; i++) {
       card += `<div class="col l2 m3 s6">
                   <div class="card padding-10">
-                    <a href="`+ docs_saved[i].url + `" target="_blank">
-                    <div>
-                    <img class="favicons" src="https://icons.duckduckgo.com/ip3/${getDomain(docs_saved[i].url)}.ico">
-                    <span>`+ docs_saved[i].name + `</span>
-                    </div>
+                    <a href="${docs_saved[i].url}" target="_blank">
+                      <div class="w80p">
+                        <img class="favicons" src="https://icons.duckduckgo.com/ip3/${getDomain(docs_saved[i].url)}.ico">
+                        <span>${docs_saved[i].name}</span>
+                      </div>
                     </a>
+                    <a href="#" class="fr" style="margin-top:3px"><img src="./imgs/icons/edit.svg"></a>
                   </div>
                 </div> `;
 

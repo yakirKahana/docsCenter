@@ -31,7 +31,14 @@
   padding: 10px;
 }
 
+.w80p{
+  width:80%;
+  display: inline-block;
+}
 
+.fr{
+  float: right;
+}
 
 .favicons{
   display: inline-flex;
