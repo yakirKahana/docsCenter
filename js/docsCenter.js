@@ -34,11 +34,13 @@ var docs_saved = [];
 
 //displaying in dashboard
 function renderDashboard() {
+  let card = '';
+
   //check if docs are in localstorage, if so, save it in docs_saved;
   if (localStorage.getItem('docs') !== null) {
     docs_saved = JSON.parse(localStorage.getItem('docs'));
   }
-  let card = '';
+  
   // if there's docs to display
   if (docs_saved.length > 0) {
     //loop thru docs_saved
@@ -89,6 +91,18 @@ $('#edit-save-btn').on('click',()=>{
   beingEdited = null;
   renderDashboard();
   $('.modal').modal(close());
+});
+
+//delete docs
+$('#edit-delete-btn').on('click',()=>{
+  let conf = confirm(`Are you sure you want to delete ${docs_saved[beingEdited].name}?`);
+  if(conf){
+    docs_saved.splice(beingEdited,1);
+    localStorage.setItem('docs',JSON.stringify(docs_saved));
+    beingEdited = null;
+    renderDashboard();
+    $('.modal').modal(close());
+  }
 });
 
 save_btn.click(() => {
