@@ -30,16 +30,19 @@
 
 
   <div class="row margin-top-10px" id="dashboard">
-
+  <!-- docs go here -->
 
   </div>
 
 
   <!-- add item -->
+  <!-- add btn -->
   <div class="fixed-action-btn">
     <a class="btn-floating waves-effect waves-light btn-large light-blue right modal-trigger" href="#new-item-modal">
       <img src="./imgs/icons/add-white.svg" alt="add icon" class="icon"></a></a>
   </div>
+
+  <!-- add modal -->
   <div id="new-item-modal" class="modal padding-10">
 
     <div class="container">
@@ -56,6 +59,29 @@
 
 
       <a class="btn right light-blue waves-effect waves-light" id="save_btn">Save</a>
+
+    </div>
+  </div>
+
+
+  <!-- edit modal -->
+
+  <div id="edit-item-modal" class="modal padding-10">
+
+    <div class="container">
+      <h3 class="light-blue-text center-align">Edit Link</h3>
+      <div class="input-field">
+        <input type="text" id="edit-name" value=" ">
+        <label for="name">Edit Name</label>
+      </div>
+
+      <div class="input-field ">
+        <input type="text" id="edit-url" value=" ">
+        <label for="url">Edit URL</label>
+      </div>
+        <input id="edit-index" type="hidden" >
+
+      <a class="btn right light-blue waves-effect waves-light" id="edit-save-btn">Save</a>
 
     </div>
   </div>
